@@ -1,0 +1,33 @@
+﻿<h2>Donors Sorted by Last Donation Date (Most Recent First)</h2>
+
+<br />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table border="1">
+        <tr>
+            <th>Full Name</th>
+            <th>Blood Group</th>
+            <th>Contact Number</th>
+            <th>City</th>
+            <th>Last Donation Date</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.ContactNo</td>
+                <td>@item.City</td>
+                <td>@item.LastDonationDate.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No donors found in the database.</p>
+}
+
+<br />
+<a href="/Donor/List">Back to Main List</a>

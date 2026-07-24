@@ -1,0 +1,38 @@
+﻿<h2>Add a New Donation</h2>
+
+<form method="post">
+
+    <div>
+        Select Donor:
+        <select name="DonorId">
+            <option value="">-- Choose a Donor --</option>
+            @foreach (var donor in ViewBag.Donors)
+            {
+                <option value="@donor.DonorId" selected="@(Model?.DonorId == donor.DonorId)">
+                    @donor.FullName (@donor.BloodGroup)
+                </option>
+            }
+        </select><br />
+        <span style="color:red">@Html.ValidationMessage("DonorId")</span>
+    </div><br />
+
+    <div>
+        Donation Date:
+        <input type="date" name="DonationDate" value="@Model?.DonationDate.ToString("yyyy-MM-dd")" /><br />
+        <span style="color:red">@Html.ValidationMessage("DonationDate")</span>
+    </div><br />
+
+    <div>
+        Volume (in mL):
+        <input type="number" name="VolumeMl" placeholder="e.g. 450" value="@Model?.VolumeMl" /><br />
+        <span style="color:red">@Html.ValidationMessage("VolumeMl")</span>
+    </div><br />
+
+    <div>
+        Camp Name:
+        <input type="text" name="CampName" placeholder="Camp Name" value="@Model?.CampName" /><br />
+        <span style="color:red">@Html.ValidationMessage("CampName")</span>
+    </div><br />
+
+    <input type="submit" value="Save Donation" />
+</form>

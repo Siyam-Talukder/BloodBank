@@ -1,0 +1,31 @@
+﻿<h2>All Donations</h2>
+<a href="/Donation/Create">Add New Donation</a>
+<br />
+<br />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <tr>
+            <th>Donor Name</th>
+            <th>Donation Date</th>
+            <th>Volume (mL)</th>
+            <th>Camp Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Donor.FullName</td>
+                <td>@item.DonationDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.VolumeMl</td>
+                <td>@item.CampName</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No donations found.</p>
+}
+<br />
+<a href="/Donor/List">Go to Donors List</a>

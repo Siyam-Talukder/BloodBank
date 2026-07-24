@@ -1,0 +1,30 @@
+﻿@model List<BloodBank.EF.Tables.Donor>
+
+<h2>Donors and Their Total Number of Donations</h2>
+<br />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table >
+        <tr>
+            <th>Full Name</th>
+            <th>Blood Group</th>
+            <th>Total Number of Donations</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.Donations.Count</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No records found.</p>
+}
+
+<br />
+<a href="/Donor/List">Back to Main List</a>

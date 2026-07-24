@@ -1,0 +1,40 @@
+﻿<form method="post">
+    <input type="hidden" name="DonorId" value="@Model.DonorId" />
+    <div>
+        Full Name:
+        <input type="text" name="FullName" placeholder="Full Name" value="@Model.FullName" /><br />
+        <span style="color:red">@Html.ValidationMessage("FullName")</span>
+    </div>
+
+    <div>
+        Blood Group:
+        <select name="BloodGroup">
+            <option value="">-- Select Blood Group --</option>
+            <option value="A+" selected="@(Model.BloodGroup == "A+")">A+</option>
+            <option value="B+" selected="@(Model.BloodGroup == "B+")">B+</option>
+            <option value="A-" selected="@(Model.BloodGroup == "A-")">A-</option>
+            <option value="B-" selected="@(Model.BloodGroup == "B-")">B-</option>
+        </select><br />
+        <span style="color:red">@Html.ValidationMessage("BloodGroup")</span>
+    </div>
+
+    <div>
+        Contact Number:
+        <input type="text" name="ContactNo" placeholder="Contact Number" value="@Model.ContactNo" /><br />
+        <span style="color:red">@Html.ValidationMessage("ContactNo")</span>
+    </div>
+
+    <div>
+        City:
+        <input type="text" name="City" placeholder="City" value="@Model.City" /><br />
+        <span style="color:red">@Html.ValidationMessage("City")</span>
+    </div>
+
+    <div>
+        Last Donation Date:
+        <input type="date" name="LastDonationDate" value="@Model.LastDonationDate.ToString("yyyy-MM-dd")" /><br />
+        <span style="color:red">@Html.ValidationMessage("LastDonationDate")</span>
+    </div>
+
+    <input type="submit" value="Update" />
+</form>

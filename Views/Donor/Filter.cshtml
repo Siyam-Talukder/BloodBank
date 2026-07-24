@@ -1,0 +1,45 @@
+﻿
+<h2>Filter Donors by Blood Group</h2>
+<form method="get">
+    <label>Select Blood Group:</label>
+    <select name="bloodGroup">
+        <option value="">-- Show All --</option>
+        <option value="A+" selected="@(ViewBag.SelectedGroup == "A+")">A+</option>
+        <option value="B+" selected="@(ViewBag.SelectedGroup == "B+")">B+</option>
+        <option value="A-" selected="@(ViewBag.SelectedGroup == "A-")">A-</option>
+        <option value="B-" selected="@(ViewBag.SelectedGroup == "B-")">B-</option>
+        <option value="O+" selected="@(ViewBag.SelectedGroup == "O+")">O+</option>
+        <option value="O-" selected="@(ViewBag.SelectedGroup == "O-")">O-</option>
+        <option value="AB+" selected="@(ViewBag.SelectedGroup == "AB+")">AB+</option>
+        <option value="AB-" selected="@(ViewBag.SelectedGroup == "AB-")">AB-</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+<br />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table border="1">
+        <tr>
+            <th>Full Name</th>
+            <th>Blood Group</th>
+            <th>Contact Number</th>
+            <th>City</th>
+            <th>Last Donation Date</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.ContactNo</td>
+                <td>@item.City</td>
+                <td>@item.LastDonationDate.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </table>
+}
+else if (!string.IsNullOrEmpty(ViewBag.SelectedGroup))
+{
+    <p>No donors found for blood group @ViewBag.SelectedGroup.</p>
+}
