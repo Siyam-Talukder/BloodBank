@@ -12,7 +12,7 @@ public partial class Donor
 
     public string BloodGroup { get; set; } = null!;
 
-    [Length(11, 11, ErrorMessage = "Contact number must be 11 digits.")]
+    [StringLength(11, MinimumLength = 11, ErrorMessage = "Contact number must be exactly 11 characters long")]
     public string ContactNo { get; set; } = null!;
 
     public string City { get; set; } = null!;
