@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using BloodBank.Models.Attributes;
 
 namespace BloodBank.EF.Tables;
 
@@ -17,6 +18,7 @@ public partial class Donor
 
     public string City { get; set; } = null!;
 
+    [PastDate(ErrorMessage = "The last donation date must be a past date.")]
     public DateOnly LastDonationDate { get; set; }
 
     public virtual ICollection<Donation> Donations { get; set; } = new List<Donation>();

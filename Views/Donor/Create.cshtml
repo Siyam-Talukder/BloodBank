@@ -3,7 +3,7 @@
         Full Name:
         <input type="text" name="FullName" placeholder="Full Name" value="@Model?.FullName" /><br />
         <span style="color:red">@Html.ValidationMessage("FullName")</span>
-    </div>
+    </div><br/>
 
     <div>
         Blood Group:
@@ -15,25 +15,25 @@
             <option value="B-" selected="@(Model?.BloodGroup == "B-")">B-</option>
         </select><br />
         <span style="color:red">@Html.ValidationMessage("BloodGroup")</span>
-    </div>
+    </div><br />
 
     <div>
         Contact Number:
         <input type="text" name="ContactNo" placeholder="Contact Number" value="@Model?.ContactNo" /><br />
         <span style="color:red">@Html.ValidationMessage("ContactNo")</span>
-    </div>
+    </div><br />
 
     <div>
         City:
         <input type="text" name="City" placeholder="City" value="@Model?.City" /><br />
         <span style="color:red">@Html.ValidationMessage("City")</span>
-    </div>
+    </div><br />
 
     <div>
         Last Donation Date:
         <input type="date" name="LastDonationDate" value="" /><br />
         <span style="color:red">@Html.ValidationMessage("LastDonationDate")</span>
-    </div>
+    </div><br />
 
     <input type="submit" value="Create" />
 </form>

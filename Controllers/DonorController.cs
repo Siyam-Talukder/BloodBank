@@ -22,10 +22,6 @@ namespace BloodBank.Controllers
         [HttpPost]
         public IActionResult Create(Donor d)
         {
-            if (d.LastDonationDate >= DateOnly.FromDateTime(DateTime.Today))
-            {
-                ModelState.AddModelError("LastDonationDate", "The last donation date must be a past date.");
-            }
             if (ModelState.IsValid)
             {
                 db.Donors.Add(d);
@@ -74,6 +70,14 @@ namespace BloodBank.Controllers
         [HttpPost]
         public IActionResult Delete(Donor d)
         {
+            var relatedDonations = (from item in db.Donations
+                                    where item.DonorId == d.DonorId
+                                    select item).ToList();
+
+            if (relatedDonations.Count > 0)
+            {
+                db.Donations.RemoveRange(relatedDonations);
+            }
             db.Donors.Remove(d);
             var res = db.SaveChanges();
             if (res > 0)
