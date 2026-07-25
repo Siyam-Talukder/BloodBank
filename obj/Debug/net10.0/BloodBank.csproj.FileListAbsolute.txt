@@ -223,3 +223,4 @@ C:\Users\UseR\source\repos\BloodBank\BloodBank\obj\Debug\net10.0\BloodBank.pdb
 C:\Users\UseR\source\repos\BloodBank\BloodBank\obj\Debug\net10.0\BloodBank.genruntimeconfig.cache
 C:\Users\UseR\source\repos\BloodBank\BloodBank\obj\Debug\net10.0\ref\BloodBank.dll
 C:\Users\UseR\source\repos\BloodBank\BloodBank\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\UseR\source\repos\BloodBank\BloodBank\obj\Debug\net10.0\BloodBank.sourcelink.json
