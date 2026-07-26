@@ -8,10 +8,10 @@
     <p><strong>City:</strong> @Model.City</p>
 </div>
 
-<form action="/Donor/Delete" method="post">
+<form method="post">
     <input type="hidden" name="DonorId" value="@Model.DonorId" />
     <input type="submit" value="Delete" style="color: red;" />
 </form>
-
 <br />
+
 <a href="/Donor/List">Cancel and go back</a>
